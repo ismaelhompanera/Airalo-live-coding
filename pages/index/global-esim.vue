@@ -1,4 +1,5 @@
-<script setup lang="ts">
+<script setup>
+
 const config = useRuntimeConfig();
 
 const preloader = false;
@@ -869,11 +870,13 @@ const MockPackageData = {
     ],
   },
 };
+
 </script>
 
 <template>
   <div class="container mx-auto">
     <div v-if="preloader">
+
       <SharedPreloader />
     </div>
 
@@ -894,5 +897,6 @@ const MockPackageData = {
     <!-- Mock View End -->
 
     <!-- You need to develop here -->
+
   </div>
 </template>
