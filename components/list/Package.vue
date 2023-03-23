@@ -3,8 +3,8 @@ const props = defineProps<{
   PackageName: string;
   SupportedCountries: string | number;
   OperatorImageUrl?: string;
-  Data: number;
-  Validity: number;
+  Data: any;
+  Validity: any;
   Price: number;
   StyleTheme: string; // dark, light
   StyleThemeGradient: string;

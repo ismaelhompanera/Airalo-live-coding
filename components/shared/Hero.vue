@@ -1,5 +1,5 @@
 <template>
-  <div class="hero relative h-[calc(100vw/3)] max-h-[467px] pt-[6.75rem]">
+  <div class="hero relative h-[calc(100vw/3)] h-[467px] pt-[6.75rem]">
     <div class="container mx-auto relative z-20 h-full">
       <div class="flex justify-center items-center h-full">
         <div class="grid xl:grid-cols-12 gap-7.5">

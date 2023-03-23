@@ -10,7 +10,6 @@ End-users must be able to visit Local eSIMs, Regional eSIMs and Global eSIM by t
 
 #### Flows
 
-
 **Steps**
 * Tap Canada > See Canada's eSIMs
 * Tap Regional > See Regions > Tap Africa > See Africa's eSIMs
@@ -20,24 +19,23 @@ eSIMs must be visible when end-users tap the rows.
 
 ---
 
-## User Story 2 (optional)
-As a [End] user, I want to search and filter the countries.
-
-Acceptance Criteria
-End-users can be able to search and filter the countries.
-
-Summary
-You can find the things we expect from you as briefly.
-
----
-
 # Project requariments
 
 ## API Endpoints: 
 
-1. Countries Endpoints: 
+1. The Endpoints of Countries: 
     * **Popular Countries:** https://airalo.com/api/v2/countries?type=popular
     * **All Countries:** https://airalo.com/api/v2/countries
-    * **Packages by Country ID:** https://airalo.com/api/v2/countries/{id}
+    * **Packages by Country SLUG:** https://airalo.com/api/v2/countries/{slug}
 
-2. Example Design URL: https://www.figma.com/file/qJRokxdCSMIPeAWr4YuxLk/Airalo-Web---Engineering-Task?node-id=1%3A2&t=GchZ41Taqus3QTYu-0
+2. The Endpoints of Regions: 
+    * **All Regions:** https://airalo.com/api/v2/regions
+    * **Packages by Region SLUG:** https://airalo.com/api/v2/regions/{slug}
+
+3. The Endpoint of Global: 
+    * **All Global eSIMs:** https://airalo.com/api/v2/regions/world
+
+## Example Design URL: 
+https://www.figma.com/file/qJRokxdCSMIPeAWr4YuxLk/Airalo-Web---Engineering-Task?node-id=1%3A2&t=GchZ41Taqus3QTYu-0
+
+---
