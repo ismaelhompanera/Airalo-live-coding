@@ -1,3 +1,4 @@
+
 <script setup>
 
 const config = useRuntimeConfig();
@@ -871,6 +872,7 @@ const MockPackageData = {
   },
 };
 
+
 </script>
 
 <template>
@@ -881,22 +883,20 @@ const MockPackageData = {
     </div>
 
     <!-- Mock View Start: Mock View of Country and Package components. This components should be removed. -->
-    <SharedExampleView
-      :CountryData="null"
-      :PackageData="{
-        packageName: MockPackageData.operator.title,
-        supportedCountries: MockPackageData.operator.countries.length,
-        data: MockPackageData.data,
-        validity: MockPackageData.validity,
-        price: MockPackageData.price,
-        styleTheme: MockPackageData.operator.style,
-        styleThemeGradient: `linear-gradient(90deg, ${MockPackageData.operator.gradient_start} 0%, ${MockPackageData.operator.gradient_end} 100%);`,
-        operatorImageUrl: MockPackageData.operator.image.url,
-      }"
-    />
+    <SharedExampleView :CountryData="null" :PackageData="{
+      packageName: MockPackageData.operator.title,
+      supportedCountries: MockPackageData.operator.countries.length,
+      data: MockPackageData.data,
+      validity: MockPackageData.validity,
+      price: MockPackageData.price,
+      styleTheme: MockPackageData.operator.style,
+      styleThemeGradient: `linear-gradient(90deg, ${MockPackageData.operator.gradient_start} 0%, ${MockPackageData.operator.gradient_end} 100%);`,
+      operatorImageUrl: MockPackageData.operator.image.url,
+    }" />
     <!-- Mock View End -->
 
     <!-- You need to develop here -->
+
 
   </div>
 </template>
