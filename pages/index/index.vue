@@ -1,4 +1,5 @@
-<script setup lang="ts">
+<script setup>
+import { fetchCountries, fetchCountriesBySlug } from '../../communications/countries'
 const config = useRuntimeConfig();
 
 const isPopuplarCountries = true;
@@ -54,6 +55,28 @@ const MockPackageData = {
     ],
   },
 };
+
+const showInfo = computed(() => {
+  return packageData.value !== null
+})
+
+const countries = ref([])
+const content = ref(null)
+const packageData = ref(null)
+onMounted(() => {
+  fetchCountries().then(response => {
+    countries.value = response
+  })
+});
+
+function onChangeCountry (slug) {
+  content.value = slug
+  fetchCountriesBySlug(slug).then(response => {
+    packageData.value = response
+  })
+};
+
+
 </script>
 
 <template>
@@ -67,8 +90,8 @@ const MockPackageData = {
       </h2>
     </div>
     <!-- Mock View Start: Mock View of Country and Package components. This components should be removed. -->
-    <SharedExampleView
-      :CountryData="{
+    <!-- <SharedExampleView
+      ="{
         title: MockCountryData.title,
         imageUrl: MockCountryData.image.url,
       }"
@@ -82,9 +105,41 @@ const MockPackageData = {
         styleThemeGradient: `linear-gradient(90deg, ${MockPackageData.operator.gradient_start} 0%, ${MockPackageData.operator.gradient_end} 100%);`,
         operatorImageUrl: MockPackageData.operator.image.url,
       }"
-    />
+    /> -->
     <!-- Mock View End -->
 
     <!-- You need to develop here -->
+    <div
+      v-for="country in countries"
+      :key="country.id">
+      <ListCountry 
+        :CountryName="country.title"
+        :Active="content == country.slug"
+        :ImageUrl="country.image.url"
+        :Slug="country.slug"
+        @onClick="onChangeCountry">
+
+        <div
+          v-if="showInfo && content == country.slug"
+          class="flex flex-wrap gap-5 py-4">
+          <slot package>
+            <ListPackage
+            v-for="item in packageData.packages"
+            :key="item.id"
+            :PackageName="item.title"
+            :OperatorImageUrl="item.operator.image.url"
+            :SupportedCountries="item.operator.countries"
+            :Data="item.data"
+            :Validity="item.validity"
+            :Price="item.price"
+            :StyleTheme="item.operator.style"
+            :StyleThemeGradient="`linear-gradient(90deg, ${item.operator.gradient_start} 0%, ${item.operator.gradient_end} 100%)`" />
+        </slot>
+        </div>
+        
+      </ListCountry>
+    </div>
+
+    
   </div>
 </template>
