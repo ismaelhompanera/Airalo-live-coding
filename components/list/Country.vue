@@ -1,15 +1,24 @@
 <script setup lang="ts">
+import { context } from 'esbuild';
+
+const emit = defineEmits(['onClick'])
 const props = defineProps<{
   CountryName: string;
   Active: boolean;
   ImageUrl?: string;
+  Slug: string;
 }>();
+
+function onClickCountry () {
+  emit('onClick', props.Slug)
+}
 </script>
 
 <template>
   <div>
     <div
-      class="flex justify-start items-center rounded shadow px-5 py-4 cursor-pointer"
+      class="flex justify-start items-center rounded shadow px-5 py-4 cursor-pointer mb-3"
+      @click="onClickCountry()"
     >
       <nuxt-img
         :src="
@@ -41,4 +50,5 @@ const props = defineProps<{
       </div>
     </div>
   </div>
+  <slot package></slot>
 </template>
