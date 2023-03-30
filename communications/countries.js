@@ -1,25 +1,19 @@
 const URL_COUNTRIES = 'https://airalo.com/api/v2/countries'
 
 function fetchCountries () {
-  return new Promise ((resolve, reject) => {
-    $fetch(`${URL_COUNTRIES}?type=popular`).then((response) => {
-      resolve (response)
-    }).catch(error => {
-      reject()
-      throw new Error(error)
-    })
+  return $fetch(`${URL_COUNTRIES}?type=popular`).then((response) => {
+    return response
+  }).catch(error => {
+    throw new Error(error)
   })
 }
 
 
 function fetchCountriesBySlug (slug) {
-  return new Promise ((resolve, reject) => {
-    $fetch(`${URL_COUNTRIES}/${slug}`).then((response) => {
-      resolve (response)
-    }).catch(error => {
-      reject()
-      throw new Error(error)
-    })
+  return $fetch(`${URL_COUNTRIES}/${slug}`).then((response) => {
+    return response
+  }).catch(error => {
+    throw new Error(error)
   })
 }
 
