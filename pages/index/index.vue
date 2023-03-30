@@ -66,13 +66,23 @@ const packageData = ref(null)
 onMounted(() => {
   fetchCountries().then(response => {
     countries.value = response
+  }).catch(() => {
+    countries.value = []
   })
 });
 
 function onChangeCountry (slug) {
-  content.value = slug
+  if (slug === content.value) {
+    packageData.value = null
+    content.value = null
+    return
+  } else {
+    content.value = slug
+  }
   fetchCountriesBySlug(slug).then(response => {
     packageData.value = response
+  }).catch(() => {
+    packageData.value = null
   })
 };
 
