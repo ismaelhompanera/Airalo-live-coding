@@ -131,7 +131,7 @@ function onChangeCountry (slug) {
 
         <div
           v-if="showInfo && content == country.slug"
-          class="flex flex-wrap gap-5 py-4">
+          class="flex justify-center flex-wrap gap-5 py-4">
           <slot package>
             <ListPackage
             v-for="item in packageData.packages"
